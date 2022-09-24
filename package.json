@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "start apiwithUi.js ",
+    "start": "node apiwithUi.js ",
     "dev": "nodemon apiwithoutUi.js",
     "dev:ui": "nodemon apiwithUi.js",
     "ui": "node apiwithUi.js",
