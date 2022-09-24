@@ -4,18 +4,13 @@ let dotenv = require('dotenv');
 dotenv.config()
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
-let mongoUrl = process.env.mongoUrl
+let mongoUrl = "mongodb+srv://local:test12345@cluster0.f8vmc.mongodb.net/?retryWrites=true&w=majority"
 let port = process.env.PORT||7600;
-let bodyParser = require('body-Parser');
+let bodyParser = require('body-parser');
 let cors = require('cors');
-let swaggerUi = require('swagger-ui-express');
-let swaggerDocument = require('./swagger.json');
-let package = require('./package.json');
 let db;
-let col_name = "admin-User";
+let col_name = "users";
 
-swaggerDocument.info.version = package.version;
-app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
@@ -152,7 +147,7 @@ app.put('/activateUser',(req,res)=>{
 
 MongoClient.connect(mongoUrl, (err, client)=>{
     if (err) console.log('error while connecting')
-     db = client.db('aug9')
+     db = client.db('nareshit')
      app.listen(port,() =>{
         console.log(`Listening on port ${port}`)
      })
